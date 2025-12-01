@@ -1,0 +1,3 @@
+[2025-12-01 09:32:39] Commit: chore(repo): initialize NewsLens-2.0 repository structure
+Description: Set up repository structure, folder layout, and development tooling. Added .gitignore, .dockerignore, and root configurations.
+
