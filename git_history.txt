@@ -4,3 +4,6 @@ Description: Set up repository structure, folder layout, and development tooling
 [2025-12-01 15:22:34] Commit: docs(readme): add project overview and setup instructions
 Description: Draft initial project README with high-level description, feature roadmap, tech stack details, and local installation steps.
 
+[2025-12-01 16:25:02] Commit: fix: resolve minor bugs and warning logs
+Description: Fixed deprecation warnings, resolved edge case errors on null pointer inputs.
+
