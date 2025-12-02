@@ -46,3 +46,6 @@ Description: Optimized execution times, streamlined loops, and cached repetitive
 [2025-12-02 17:53:01] Commit: chore: add configuration parameter for environment setup
 Description: Added debug log options and minor settings overrides in environment definitions.
 
+[2025-12-02 18:57:42] Commit: style: format codebase with ruff and black
+Description: Ran linter, fixed code format, and cleaned up whitespace across files.
+
