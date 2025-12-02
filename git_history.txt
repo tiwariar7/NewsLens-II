@@ -43,3 +43,6 @@ Description: Added debug log options and minor settings overrides in environment
 [2025-12-02 16:25:26] Commit: perf: optimize loops and DB queries
 Description: Optimized execution times, streamlined loops, and cached repetitive values.
 
+[2025-12-02 17:53:01] Commit: chore: add configuration parameter for environment setup
+Description: Added debug log options and minor settings overrides in environment definitions.
+
