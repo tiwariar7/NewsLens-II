@@ -16,3 +16,6 @@ Description: Added docker-compose.yml for setting up DB and Redis services. Crea
 [2025-12-02 09:35:44] Commit: style: format codebase with ruff and black
 Description: Ran linter, fixed code format, and cleaned up whitespace across files.
 
+[2025-12-02 10:36:19] Commit: docs: update comments and docstrings in modules
+Description: Enhanced code documentation, added function signatures and parameters description.
+
