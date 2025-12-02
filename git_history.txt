@@ -10,3 +10,6 @@ Description: Fixed deprecation warnings, resolved edge case errors on null point
 [2025-12-01 18:02:33] Commit: chore: add configuration parameter for environment setup
 Description: Added debug log options and minor settings overrides in environment definitions.
 
+[2025-12-02 09:06:18] Commit: chore(config): create environment templates and docker compose configuration
+Description: Added docker-compose.yml for setting up DB and Redis services. Created env templates for credentials.
+
