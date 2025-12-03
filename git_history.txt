@@ -70,3 +70,6 @@ Description: Updated version dependencies, cleaned up lockfiles and updated envi
 [2025-12-03 15:48:45] Commit: chore: update project dependencies and package metadata
 Description: Updated version dependencies, cleaned up lockfiles and updated environment variables description.
 
+[2025-12-03 15:58:38] Commit: docs: update comments and docstrings in modules
+Description: Enhanced code documentation, added function signatures and parameters description.
+
