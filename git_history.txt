@@ -79,3 +79,6 @@ Description: Fixed deprecation warnings, resolved edge case errors on null point
 [2025-12-03 17:43:14] Commit: test: expand unit test coverage
 Description: Added edge case tests and validated response validation outputs for API routes.
 
+[2025-12-03 18:13:20] Commit: docs: update comments and docstrings in modules
+Description: Enhanced code documentation, added function signatures and parameters description.
+
