@@ -73,3 +73,6 @@ Description: Updated version dependencies, cleaned up lockfiles and updated envi
 [2025-12-03 15:58:38] Commit: docs: update comments and docstrings in modules
 Description: Enhanced code documentation, added function signatures and parameters description.
 
+[2025-12-03 17:03:46] Commit: fix: resolve minor bugs and warning logs
+Description: Fixed deprecation warnings, resolved edge case errors on null pointer inputs.
+
