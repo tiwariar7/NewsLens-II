@@ -88,3 +88,6 @@ Description: Ran linter, fixed code format, and cleaned up whitespace across fil
 [2025-12-03 20:31:14] Commit: perf: optimize loops and DB queries
 Description: Optimized execution times, streamlined loops, and cached repetitive values.
 
+[2025-12-04 09:23:04] Commit: feat(db): add PostgreSQL connection pool and migration framework
+Description: Configured SQLAlchemy integration with Flask. Setup connection pooling, migration handling via Flask-Migrate and Alembic ini configurations.
+
