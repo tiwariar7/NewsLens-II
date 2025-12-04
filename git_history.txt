@@ -91,3 +91,6 @@ Description: Optimized execution times, streamlined loops, and cached repetitive
 [2025-12-04 09:23:04] Commit: feat(db): add PostgreSQL connection pool and migration framework
 Description: Configured SQLAlchemy integration with Flask. Setup connection pooling, migration handling via Flask-Migrate and Alembic ini configurations.
 
+[2025-12-04 10:10:42] Commit: feat(db): implement migration baseline and initial schema
+Description: Run initial database migration to configure base tables. Defined user, article, preferences, and bookmark tables in Alembic version history.
+
