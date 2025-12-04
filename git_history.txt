@@ -97,3 +97,6 @@ Description: Run initial database migration to configure base tables. Defined us
 [2025-12-04 14:13:13] Commit: chore: add configuration parameter for environment setup
 Description: Added debug log options and minor settings overrides in environment definitions.
 
+[2025-12-04 14:32:53] Commit: style: format codebase with ruff and black
+Description: Ran linter, fixed code format, and cleaned up whitespace across files.
+
