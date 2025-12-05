@@ -112,3 +112,6 @@ Description: Ran linter, fixed code format, and cleaned up whitespace across fil
 [2025-12-04 20:49:32] Commit: chore: add configuration parameter for environment setup
 Description: Added debug log options and minor settings overrides in environment definitions.
 
+[2025-12-05 11:55:20] Commit: feat(models): implement User database model and password utilities
+Description: Create User database model with secure password hashing using bcrypt. Add constraints and indexes on email.
+
