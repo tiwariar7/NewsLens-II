@@ -133,3 +133,6 @@ Description: Ran linter, fixed code format, and cleaned up whitespace across fil
 [2025-12-06 11:18:14] Commit: docs: update comments and docstrings in modules
 Description: Enhanced code documentation, added function signatures and parameters description.
 
+[2025-12-06 13:32:10] Commit: chore: add configuration parameter for environment setup
+Description: Added debug log options and minor settings overrides in environment definitions.
+
