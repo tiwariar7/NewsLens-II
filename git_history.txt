@@ -145,3 +145,6 @@ Description: Added edge case tests and validated response validation outputs for
 [2025-12-06 14:42:52] Commit: refactor: clean up imports and variable names
 Description: Organized imports, removed unused imports, and updated local variable naming conventions for readability.
 
+[2025-12-06 14:50:54] Commit: docs: update comments and docstrings in modules
+Description: Enhanced code documentation, added function signatures and parameters description.
+
