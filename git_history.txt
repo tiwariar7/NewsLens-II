@@ -154,3 +154,6 @@ Description: Organized imports, removed unused imports, and updated local variab
 [2025-12-06 16:04:02] Commit: fix: resolve minor bugs and warning logs
 Description: Fixed deprecation warnings, resolved edge case errors on null pointer inputs.
 
+[2025-12-06 17:17:56] Commit: chore: add configuration parameter for environment setup
+Description: Added debug log options and minor settings overrides in environment definitions.
+
