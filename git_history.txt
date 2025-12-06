@@ -127,3 +127,6 @@ Description: Fixed deprecation warnings, resolved edge case errors on null point
 [2025-12-06 09:07:42] Commit: feat(models): implement Preferences database model
 Description: Create Preferences model to store user-specific application preferences like theme, language, and news scopes with cascade-delete behaviors.
 
+[2025-12-06 10:10:42] Commit: style: format codebase with ruff and black
+Description: Ran linter, fixed code format, and cleaned up whitespace across files.
+
