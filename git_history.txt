@@ -160,3 +160,6 @@ Description: Added debug log options and minor settings overrides in environment
 [2025-12-06 17:30:34] Commit: chore: add configuration parameter for environment setup
 Description: Added debug log options and minor settings overrides in environment definitions.
 
+[2025-12-06 18:08:26] Commit: chore: add configuration parameter for environment setup
+Description: Added debug log options and minor settings overrides in environment definitions.
+
