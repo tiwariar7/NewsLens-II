@@ -166,3 +166,6 @@ Description: Added debug log options and minor settings overrides in environment
 [2025-12-07 11:15:26] Commit: feat(models): implement Article and Bookmark database models
 Description: Create Article model to store parsed news metadata, view count, and sentiment scores. Create association table for many-to-many Bookmarks relationship.
 
+[2025-12-07 13:34:33] Commit: feat(models): implement ArticleReadHistory and UserSession models
+Description: Add models to track reading history, read duration, and user sessions for audit logging and token revocation.
+
