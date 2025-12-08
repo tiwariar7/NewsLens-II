@@ -181,3 +181,6 @@ Description: Added debug log options and minor settings overrides in environment
 [2025-12-07 16:48:56] Commit: chore: add configuration parameter for environment setup
 Description: Added debug log options and minor settings overrides in environment definitions.
 
+[2025-12-08 09:54:52] Commit: feat(engine): implement BaseSource interface and registry
+Description: Create abstract class for news feed sources. Add source registry to handle dynamic source loading and runtime status tracking.
+
