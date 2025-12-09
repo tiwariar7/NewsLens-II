@@ -190,3 +190,6 @@ Description: Optimized execution times, streamlined loops, and cached repetitive
 [2025-12-08 12:10:17] Commit: perf: optimize loops and DB queries
 Description: Optimized execution times, streamlined loops, and cached repetitive values.
 
+[2025-12-09 09:42:25] Commit: feat(engine): implement RSS source parsing using feedparser
+Description: Integrate feedparser to download and parse RSS news feeds. Add error handling and automatic retry with backoff on network failures.
+
