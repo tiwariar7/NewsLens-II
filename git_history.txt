@@ -214,3 +214,6 @@ Description: Ran linter, fixed code format, and cleaned up whitespace across fil
 [2025-12-09 18:00:11] Commit: style: format codebase with ruff and black
 Description: Ran linter, fixed code format, and cleaned up whitespace across files.
 
+[2025-12-09 18:01:06] Commit: test: expand unit test coverage
+Description: Added edge case tests and validated response validation outputs for API routes.
+
