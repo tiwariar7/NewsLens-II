@@ -235,3 +235,6 @@ Description: Fixed deprecation warnings, resolved edge case errors on null point
 [2025-12-10 11:29:12] Commit: feat(engine): add NewsAPI and Guardian API connectors
 Description: Implement news ingestion connectors using NewsAPI.org and The Guardian API. Support pagination and rate-limit tracking via Redis.
 
+[2025-12-10 11:46:58] Commit: style: format codebase with ruff and black
+Description: Ran linter, fixed code format, and cleaned up whitespace across files.
+
