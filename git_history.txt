@@ -232,3 +232,6 @@ Description: Optimized execution times, streamlined loops, and cached repetitive
 [2025-12-09 20:41:59] Commit: fix: resolve minor bugs and warning logs
 Description: Fixed deprecation warnings, resolved edge case errors on null pointer inputs.
 
+[2025-12-10 11:29:12] Commit: feat(engine): add NewsAPI and Guardian API connectors
+Description: Implement news ingestion connectors using NewsAPI.org and The Guardian API. Support pagination and rate-limit tracking via Redis.
+
