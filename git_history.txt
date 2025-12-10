@@ -250,3 +250,6 @@ Description: Added edge case tests and validated response validation outputs for
 [2025-12-10 15:43:55] Commit: chore: update project dependencies and package metadata
 Description: Updated version dependencies, cleaned up lockfiles and updated environment variables description.
 
+[2025-12-10 17:37:39] Commit: style: format codebase with ruff and black
+Description: Ran linter, fixed code format, and cleaned up whitespace across files.
+
