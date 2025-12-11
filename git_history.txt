@@ -298,3 +298,6 @@ Description: Enhanced code documentation, added function signatures and paramete
 [2025-12-11 19:19:25] Commit: chore: update project dependencies and package metadata
 Description: Updated version dependencies, cleaned up lockfiles and updated environment variables description.
 
+[2025-12-11 19:31:32] Commit: chore: add configuration parameter for environment setup
+Description: Added debug log options and minor settings overrides in environment definitions.
+
