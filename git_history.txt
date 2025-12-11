@@ -268,3 +268,6 @@ Description: Implement NYT Article Search API source, mapping sections, desks, a
 [2025-12-11 10:00:53] Commit: feat(engine): add full article scraping using BeautifulSoup and readability
 Description: Implement scrape_article using beautifulsoup4 and readability-lxml to extract complete text body from truncated RSS items.
 
+[2025-12-11 12:12:20] Commit: test: expand unit test coverage
+Description: Added edge case tests and validated response validation outputs for API routes.
+
