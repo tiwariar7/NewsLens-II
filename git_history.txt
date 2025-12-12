@@ -307,3 +307,6 @@ Description: Organized imports, removed unused imports, and updated local variab
 [2025-12-11 20:10:21] Commit: refactor: clean up imports and variable names
 Description: Organized imports, removed unused imports, and updated local variable naming conventions for readability.
 
+[2025-12-12 09:54:33] Commit: feat(engine): integrate spaCy NER and TextBlob sentiment analysis
+Description: Implement article enrichment tasks to extract named entities (people, orgs, money) using spaCy and perform sentiment polarity scoring via TextBlob.
+
