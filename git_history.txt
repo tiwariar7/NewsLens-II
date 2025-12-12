@@ -310,3 +310,6 @@ Description: Organized imports, removed unused imports, and updated local variab
 [2025-12-12 09:54:33] Commit: feat(engine): integrate spaCy NER and TextBlob sentiment analysis
 Description: Implement article enrichment tasks to extract named entities (people, orgs, money) using spaCy and perform sentiment polarity scoring via TextBlob.
 
+[2025-12-12 16:01:10] Commit: chore: update project dependencies and package metadata
+Description: Updated version dependencies, cleaned up lockfiles and updated environment variables description.
+
