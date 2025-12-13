@@ -337,3 +337,6 @@ Description: Fixed deprecation warnings, resolved edge case errors on null point
 [2025-12-13 11:38:06] Commit: feat(engine): add search queries and hybrid search logic
 Description: Implement search index and hybrid full-text/vector search query functions to combine pgvector semantic lookup and postgres FTS.
 
+[2025-12-13 11:44:00] Commit: style: format codebase with ruff and black
+Description: Ran linter, fixed code format, and cleaned up whitespace across files.
+
