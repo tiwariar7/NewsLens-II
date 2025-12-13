@@ -349,3 +349,6 @@ Description: Enhanced code documentation, added function signatures and paramete
 [2025-12-13 18:44:21] Commit: perf: optimize loops and DB queries
 Description: Optimized execution times, streamlined loops, and cached repetitive values.
 
+[2025-12-13 19:47:43] Commit: chore: add configuration parameter for environment setup
+Description: Added debug log options and minor settings overrides in environment definitions.
+
