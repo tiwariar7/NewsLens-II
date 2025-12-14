@@ -364,3 +364,6 @@ Description: Add token revocation using a Redis token blacklist. Implement refre
 [2025-12-14 18:46:23] Commit: chore: update project dependencies and package metadata
 Description: Updated version dependencies, cleaned up lockfiles and updated environment variables description.
 
+[2025-12-14 20:52:37] Commit: fix: resolve minor bugs and warning logs
+Description: Fixed deprecation warnings, resolved edge case errors on null pointer inputs.
+
