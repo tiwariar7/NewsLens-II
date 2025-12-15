@@ -388,3 +388,6 @@ Description: Ran linter, fixed code format, and cleaned up whitespace across fil
 [2025-12-15 18:41:02] Commit: chore: update project dependencies and package metadata
 Description: Updated version dependencies, cleaned up lockfiles and updated environment variables description.
 
+[2025-12-15 19:03:30] Commit: fix: resolve minor bugs and warning logs
+Description: Fixed deprecation warnings, resolved edge case errors on null pointer inputs.
+
