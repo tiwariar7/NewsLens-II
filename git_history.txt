@@ -376,3 +376,6 @@ Description: Fixed deprecation warnings, resolved edge case errors on null point
 [2025-12-15 13:14:27] Commit: style: format codebase with ruff and black
 Description: Ran linter, fixed code format, and cleaned up whitespace across files.
 
+[2025-12-15 14:25:23] Commit: chore: update project dependencies and package metadata
+Description: Updated version dependencies, cleaned up lockfiles and updated environment variables description.
+
