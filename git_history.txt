@@ -367,3 +367,6 @@ Description: Updated version dependencies, cleaned up lockfiles and updated envi
 [2025-12-14 20:52:37] Commit: fix: resolve minor bugs and warning logs
 Description: Fixed deprecation warnings, resolved edge case errors on null pointer inputs.
 
+[2025-12-15 09:07:23] Commit: feat(api): implement forgot password and email verification handlers
+Description: Create password reset flow generating secure tokens with verification emails sent via async worker.
+
