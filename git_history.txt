@@ -397,3 +397,6 @@ Description: Updated version dependencies, cleaned up lockfiles and updated envi
 [2025-12-16 10:33:00] Commit: feat(api): implement GET /articles endpoint with pagination and filtering
 Description: Create feed retrieval API with page pagination and filters for category, source, publication date, and sorting options.
 
+[2025-12-16 11:48:43] Commit: chore: add configuration parameter for environment setup
+Description: Added debug log options and minor settings overrides in environment definitions.
+
