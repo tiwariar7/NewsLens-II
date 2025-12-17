@@ -415,3 +415,6 @@ Description: Create route to fetch a single article, atomically increment views,
 [2025-12-17 12:12:18] Commit: refactor: clean up imports and variable names
 Description: Organized imports, removed unused imports, and updated local variable naming conventions for readability.
 
+[2025-12-17 12:13:49] Commit: style: format codebase with ruff and black
+Description: Ran linter, fixed code format, and cleaned up whitespace across files.
+
