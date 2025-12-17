@@ -412,3 +412,6 @@ Description: Fixed deprecation warnings, resolved edge case errors on null point
 [2025-12-17 09:45:38] Commit: feat(api): implement GET /articles/:id and bookmark actions
 Description: Create route to fetch a single article, atomically increment views, and support bookmarking/unbookmarking actions.
 
+[2025-12-17 12:12:18] Commit: refactor: clean up imports and variable names
+Description: Organized imports, removed unused imports, and updated local variable naming conventions for readability.
+
