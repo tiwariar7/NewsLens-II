@@ -409,3 +409,6 @@ Description: Updated version dependencies, cleaned up lockfiles and updated envi
 [2025-12-16 18:15:23] Commit: fix: resolve minor bugs and warning logs
 Description: Fixed deprecation warnings, resolved edge case errors on null pointer inputs.
 
+[2025-12-17 09:45:38] Commit: feat(api): implement GET /articles/:id and bookmark actions
+Description: Create route to fetch a single article, atomically increment views, and support bookmarking/unbookmarking actions.
+
