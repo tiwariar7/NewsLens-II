@@ -430,3 +430,6 @@ Description: Updated version dependencies, cleaned up lockfiles and updated envi
 [2025-12-18 09:20:50] Commit: feat(api): implement GET /feed/personalized and GET /trending
 Description: Implement personalized feed recommendation boosting preferred categories, and trending score calculation with exponential age decay.
 
+[2025-12-18 09:44:22] Commit: feat(cache): implement Redis caching and cache-warming background jobs
+Description: Add redis-py client caching with custom decorators and key versioning. Configure cache-warming to pre-load homepage feeds.
+
