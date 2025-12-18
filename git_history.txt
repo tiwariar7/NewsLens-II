@@ -451,3 +451,6 @@ Description: Updated version dependencies, cleaned up lockfiles and updated envi
 [2025-12-18 19:39:45] Commit: chore: add configuration parameter for environment setup
 Description: Added debug log options and minor settings overrides in environment definitions.
 
+[2025-12-18 19:42:25] Commit: refactor: clean up imports and variable names
+Description: Organized imports, removed unused imports, and updated local variable naming conventions for readability.
+
