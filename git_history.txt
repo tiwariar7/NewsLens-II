@@ -454,3 +454,6 @@ Description: Added debug log options and minor settings overrides in environment
 [2025-12-18 19:42:25] Commit: refactor: clean up imports and variable names
 Description: Organized imports, removed unused imports, and updated local variable naming conventions for readability.
 
+[2025-12-19 10:27:25] Commit: feat(security): integrate Talisman for HTTP security headers and CSRF protection
+Description: Add Flask-Talisman middleware to enforce HSTS, CSP rules, XSS protection, and prevent clickjacking. Enable CSRF tokens for state-changing calls.
+
