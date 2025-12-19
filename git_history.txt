@@ -457,3 +457,6 @@ Description: Organized imports, removed unused imports, and updated local variab
 [2025-12-19 10:27:25] Commit: feat(security): integrate Talisman for HTTP security headers and CSRF protection
 Description: Add Flask-Talisman middleware to enforce HSTS, CSP rules, XSS protection, and prevent clickjacking. Enable CSRF tokens for state-changing calls.
 
+[2025-12-19 10:34:34] Commit: perf: optimize loops and DB queries
+Description: Optimized execution times, streamlined loops, and cached repetitive values.
+
