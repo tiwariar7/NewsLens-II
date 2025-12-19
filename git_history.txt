@@ -493,3 +493,6 @@ Description: Optimized execution times, streamlined loops, and cached repetitive
 [2025-12-19 19:18:48] Commit: fix: resolve minor bugs and warning logs
 Description: Fixed deprecation warnings, resolved edge case errors on null pointer inputs.
 
+[2025-12-19 19:27:04] Commit: fix: resolve minor bugs and warning logs
+Description: Fixed deprecation warnings, resolved edge case errors on null pointer inputs.
+
