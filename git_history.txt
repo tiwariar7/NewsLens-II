@@ -502,3 +502,6 @@ Description: Fixed deprecation warnings, resolved edge case errors on null point
 [2025-12-20 09:50:21] Commit: feat(validation): implement request payload validation using Pydantic schemas
 Description: Define Pydantic schemas for input data validation. Return structured 422 validation errors with correlation IDs.
 
+[2025-12-20 10:41:56] Commit: fix: resolve minor bugs and warning logs
+Description: Fixed deprecation warnings, resolved edge case errors on null pointer inputs.
+
