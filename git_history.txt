@@ -514,3 +514,6 @@ Description: Updated version dependencies, cleaned up lockfiles and updated envi
 [2025-12-20 11:27:04] Commit: perf: optimize loops and DB queries
 Description: Optimized execution times, streamlined loops, and cached repetitive values.
 
+[2025-12-20 12:29:04] Commit: docs: update comments and docstrings in modules
+Description: Enhanced code documentation, added function signatures and parameters description.
+
