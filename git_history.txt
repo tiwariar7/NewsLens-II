@@ -517,3 +517,6 @@ Description: Optimized execution times, streamlined loops, and cached repetitive
 [2025-12-20 12:29:04] Commit: docs: update comments and docstrings in modules
 Description: Enhanced code documentation, added function signatures and parameters description.
 
+[2025-12-20 12:39:06] Commit: chore: update project dependencies and package metadata
+Description: Updated version dependencies, cleaned up lockfiles and updated environment variables description.
+
