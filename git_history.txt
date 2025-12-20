@@ -505,3 +505,6 @@ Description: Define Pydantic schemas for input data validation. Return structure
 [2025-12-20 10:41:56] Commit: fix: resolve minor bugs and warning logs
 Description: Fixed deprecation warnings, resolved edge case errors on null pointer inputs.
 
+[2025-12-20 10:42:12] Commit: fix: resolve minor bugs and warning logs
+Description: Fixed deprecation warnings, resolved edge case errors on null pointer inputs.
+
