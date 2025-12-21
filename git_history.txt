@@ -547,3 +547,6 @@ Description: Added debug log options and minor settings overrides in environment
 [2025-12-21 10:15:08] Commit: docs: update comments and docstrings in modules
 Description: Enhanced code documentation, added function signatures and parameters description.
 
+[2025-12-21 10:23:12] Commit: style: format codebase with ruff and black
+Description: Ran linter, fixed code format, and cleaned up whitespace across files.
+
