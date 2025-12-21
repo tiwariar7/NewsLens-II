@@ -541,3 +541,6 @@ Description: Configure worker.py and RQ dashboard to process background tasks. S
 [2025-12-21 09:51:24] Commit: feat(worker): implement background ingestion and enrichment tasks
 Description: Create async tasks to fetch RSS feeds, scrape full articles, generate embeddings, and analyze NLP data in background workers.
 
+[2025-12-21 10:04:37] Commit: chore: add configuration parameter for environment setup
+Description: Added debug log options and minor settings overrides in environment definitions.
+
