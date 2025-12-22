@@ -565,3 +565,6 @@ Description: Implement failed job retry logic, DLQ persistence in DB, and Promet
 [2025-12-22 09:16:44] Commit: chore: add configuration parameter for environment setup
 Description: Added debug log options and minor settings overrides in environment definitions.
 
+[2025-12-22 12:43:44] Commit: chore: update project dependencies and package metadata
+Description: Updated version dependencies, cleaned up lockfiles and updated environment variables description.
+
