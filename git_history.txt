@@ -562,3 +562,6 @@ Description: Updated version dependencies, cleaned up lockfiles and updated envi
 [2025-12-22 09:05:26] Commit: feat(worker): add dead letter queue and job monitoring metrics
 Description: Implement failed job retry logic, DLQ persistence in DB, and Prometheus metrics for queue sizing and worker latency.
 
+[2025-12-22 09:16:44] Commit: chore: add configuration parameter for environment setup
+Description: Added debug log options and minor settings overrides in environment definitions.
+
