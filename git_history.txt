@@ -580,3 +580,6 @@ Description: Optimized execution times, streamlined loops, and cached repetitive
 [2025-12-22 18:33:33] Commit: test: expand unit test coverage
 Description: Added edge case tests and validated response validation outputs for API routes.
 
+[2025-12-22 20:09:17] Commit: docs: update comments and docstrings in modules
+Description: Enhanced code documentation, added function signatures and parameters description.
+
