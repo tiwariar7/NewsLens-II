@@ -574,3 +574,6 @@ Description: Updated version dependencies, cleaned up lockfiles and updated envi
 [2025-12-22 15:45:49] Commit: style: format codebase with ruff and black
 Description: Ran linter, fixed code format, and cleaned up whitespace across files.
 
+[2025-12-22 18:04:09] Commit: perf: optimize loops and DB queries
+Description: Optimized execution times, streamlined loops, and cached repetitive values.
+
