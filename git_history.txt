@@ -601,3 +601,6 @@ Description: Added edge case tests and validated response validation outputs for
 [2025-12-23 13:16:55] Commit: fix: resolve minor bugs and warning logs
 Description: Fixed deprecation warnings, resolved edge case errors on null pointer inputs.
 
+[2025-12-23 13:18:39] Commit: style: format codebase with ruff and black
+Description: Ran linter, fixed code format, and cleaned up whitespace across files.
+
