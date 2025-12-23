@@ -586,3 +586,6 @@ Description: Enhanced code documentation, added function signatures and paramete
 [2025-12-23 09:06:45] Commit: feat(frontend): initialize Next.js 14 project with TypeScript and Tailwind
 Description: Create frontend next.js directory with layout structure, Tailwind CSS configuration, custom variables, and basic utilities.
 
+[2025-12-23 09:51:51] Commit: fix: resolve minor bugs and warning logs
+Description: Fixed deprecation warnings, resolved edge case errors on null pointer inputs.
+
