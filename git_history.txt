@@ -598,3 +598,6 @@ Description: Enhanced code documentation, added function signatures and paramete
 [2025-12-23 12:26:35] Commit: test: expand unit test coverage
 Description: Added edge case tests and validated response validation outputs for API routes.
 
+[2025-12-23 13:16:55] Commit: fix: resolve minor bugs and warning logs
+Description: Fixed deprecation warnings, resolved edge case errors on null pointer inputs.
+
