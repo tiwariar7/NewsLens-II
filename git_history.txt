@@ -622,3 +622,6 @@ Description: Enhanced code documentation, added function signatures and paramete
 [2025-12-23 19:22:51] Commit: style: format codebase with ruff and black
 Description: Ran linter, fixed code format, and cleaned up whitespace across files.
 
+[2025-12-23 20:33:47] Commit: fix: resolve minor bugs and warning logs
+Description: Fixed deprecation warnings, resolved edge case errors on null pointer inputs.
+
