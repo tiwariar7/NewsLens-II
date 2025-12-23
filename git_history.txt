@@ -589,3 +589,6 @@ Description: Create frontend next.js directory with layout structure, Tailwind C
 [2025-12-23 09:51:51] Commit: fix: resolve minor bugs and warning logs
 Description: Fixed deprecation warnings, resolved edge case errors on null pointer inputs.
 
+[2025-12-23 10:01:20] Commit: refactor: clean up imports and variable names
+Description: Organized imports, removed unused imports, and updated local variable naming conventions for readability.
+
