@@ -649,3 +649,6 @@ Description: Added edge case tests and validated response validation outputs for
 [2025-12-24 18:32:25] Commit: refactor: clean up imports and variable names
 Description: Organized imports, removed unused imports, and updated local variable naming conventions for readability.
 
+[2025-12-24 19:13:18] Commit: style: format codebase with ruff and black
+Description: Ran linter, fixed code format, and cleaned up whitespace across files.
+
