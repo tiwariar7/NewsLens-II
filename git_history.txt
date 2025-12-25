@@ -664,3 +664,6 @@ Description: Fixed deprecation warnings, resolved edge case errors on null point
 [2025-12-25 12:12:25] Commit: chore: update project dependencies and package metadata
 Description: Updated version dependencies, cleaned up lockfiles and updated environment variables description.
 
+[2025-12-25 13:39:35] Commit: test: expand unit test coverage
+Description: Added edge case tests and validated response validation outputs for API routes.
+
