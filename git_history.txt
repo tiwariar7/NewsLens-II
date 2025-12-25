@@ -652,3 +652,6 @@ Description: Organized imports, removed unused imports, and updated local variab
 [2025-12-24 19:13:18] Commit: style: format codebase with ruff and black
 Description: Ran linter, fixed code format, and cleaned up whitespace across files.
 
+[2025-12-25 09:01:47] Commit: feat(frontend): create global Layout, Sidebar, and Header components
+Description: Implement responsive navigation layout with collapsible sidebar for mobile, and header with user profile menu and theme toggle.
+
