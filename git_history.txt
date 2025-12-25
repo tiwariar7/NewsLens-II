@@ -655,3 +655,6 @@ Description: Ran linter, fixed code format, and cleaned up whitespace across fil
 [2025-12-25 09:01:47] Commit: feat(frontend): create global Layout, Sidebar, and Header components
 Description: Implement responsive navigation layout with collapsible sidebar for mobile, and header with user profile menu and theme toggle.
 
+[2025-12-25 09:04:41] Commit: refactor: clean up imports and variable names
+Description: Organized imports, removed unused imports, and updated local variable naming conventions for readability.
+
