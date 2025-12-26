@@ -700,3 +700,6 @@ Description: Ran linter, fixed code format, and cleaned up whitespace across fil
 [2025-12-26 11:57:11] Commit: fix: resolve minor bugs and warning logs
 Description: Fixed deprecation warnings, resolved edge case errors on null pointer inputs.
 
+[2025-12-26 12:18:59] Commit: test: expand unit test coverage
+Description: Added edge case tests and validated response validation outputs for API routes.
+
