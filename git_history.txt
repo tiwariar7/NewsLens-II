@@ -685,3 +685,6 @@ Description: Enhanced code documentation, added function signatures and paramete
 [2025-12-25 19:07:25] Commit: style: format codebase with ruff and black
 Description: Ran linter, fixed code format, and cleaned up whitespace across files.
 
+[2025-12-26 10:18:14] Commit: feat(frontend): add dark mode styling and theme toggles
+Description: Integrate next-themes to handle light/dark mode based on system preference and local storage settings.
+
