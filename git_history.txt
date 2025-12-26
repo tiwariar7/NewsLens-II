@@ -721,3 +721,6 @@ Description: Fixed deprecation warnings, resolved edge case errors on null point
 [2025-12-26 19:11:04] Commit: style: format codebase with ruff and black
 Description: Ran linter, fixed code format, and cleaned up whitespace across files.
 
+[2025-12-26 19:30:21] Commit: chore: add configuration parameter for environment setup
+Description: Added debug log options and minor settings overrides in environment definitions.
+
