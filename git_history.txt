@@ -709,3 +709,6 @@ Description: Fixed deprecation warnings, resolved edge case errors on null point
 [2025-12-26 15:42:47] Commit: style: format codebase with ruff and black
 Description: Ran linter, fixed code format, and cleaned up whitespace across files.
 
+[2025-12-26 16:33:53] Commit: docs: update comments and docstrings in modules
+Description: Enhanced code documentation, added function signatures and parameters description.
+
