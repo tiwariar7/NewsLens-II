@@ -694,3 +694,6 @@ Description: Fixed deprecation warnings, resolved edge case errors on null point
 [2025-12-26 11:47:00] Commit: test: expand unit test coverage
 Description: Added edge case tests and validated response validation outputs for API routes.
 
+[2025-12-26 11:52:17] Commit: style: format codebase with ruff and black
+Description: Ran linter, fixed code format, and cleaned up whitespace across files.
+
