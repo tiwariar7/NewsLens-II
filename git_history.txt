@@ -745,3 +745,6 @@ Description: Added debug log options and minor settings overrides in environment
 [2025-12-27 15:36:26] Commit: test: expand unit test coverage
 Description: Added edge case tests and validated response validation outputs for API routes.
 
+[2025-12-27 16:27:08] Commit: chore: update project dependencies and package metadata
+Description: Updated version dependencies, cleaned up lockfiles and updated environment variables description.
+
