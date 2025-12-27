@@ -739,3 +739,6 @@ Description: Enhanced code documentation, added function signatures and paramete
 [2025-12-27 14:29:08] Commit: refactor: clean up imports and variable names
 Description: Organized imports, removed unused imports, and updated local variable naming conventions for readability.
 
+[2025-12-27 15:07:07] Commit: chore: add configuration parameter for environment setup
+Description: Added debug log options and minor settings overrides in environment definitions.
+
