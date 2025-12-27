@@ -724,3 +724,6 @@ Description: Ran linter, fixed code format, and cleaned up whitespace across fil
 [2025-12-26 19:30:21] Commit: chore: add configuration parameter for environment setup
 Description: Added debug log options and minor settings overrides in environment definitions.
 
+[2025-12-27 11:00:52] Commit: feat(frontend): build reusable ArticleCard and loading skeletons
+Description: Create unified ArticleCard component with cards displaying sentiment badges and source logos. Add shimmer skeletons for loading state placeholders.
+
