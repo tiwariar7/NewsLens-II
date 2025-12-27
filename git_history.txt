@@ -727,3 +727,6 @@ Description: Added debug log options and minor settings overrides in environment
 [2025-12-27 11:00:52] Commit: feat(frontend): build reusable ArticleCard and loading skeletons
 Description: Create unified ArticleCard component with cards displaying sentiment badges and source logos. Add shimmer skeletons for loading state placeholders.
 
+[2025-12-27 11:12:18] Commit: test: expand unit test coverage
+Description: Added edge case tests and validated response validation outputs for API routes.
+
