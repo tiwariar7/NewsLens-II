@@ -763,3 +763,6 @@ Description: Optimized execution times, streamlined loops, and cached repetitive
 [2025-12-28 13:15:11] Commit: test: expand unit test coverage
 Description: Added edge case tests and validated response validation outputs for API routes.
 
+[2025-12-28 13:47:02] Commit: chore: add configuration parameter for environment setup
+Description: Added debug log options and minor settings overrides in environment definitions.
+
