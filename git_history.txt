@@ -790,3 +790,6 @@ Description: Optimized execution times, streamlined loops, and cached repetitive
 [2025-12-29 09:14:18] Commit: feat(frontend): implement Onboarding flow and TopicPicker component
 Description: Create user onboarding wizard with multi-select TopicPicker component to save category preferences to DB.
 
+[2025-12-29 09:20:57] Commit: chore: update project dependencies and package metadata
+Description: Updated version dependencies, cleaned up lockfiles and updated environment variables description.
+
