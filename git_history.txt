@@ -805,3 +805,6 @@ Description: Updated version dependencies, cleaned up lockfiles and updated envi
 [2025-12-29 13:12:37] Commit: fix: resolve minor bugs and warning logs
 Description: Fixed deprecation warnings, resolved edge case errors on null pointer inputs.
 
+[2025-12-29 16:22:30] Commit: test: expand unit test coverage
+Description: Added edge case tests and validated response validation outputs for API routes.
+
