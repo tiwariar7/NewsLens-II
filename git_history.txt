@@ -808,3 +808,6 @@ Description: Fixed deprecation warnings, resolved edge case errors on null point
 [2025-12-29 16:22:30] Commit: test: expand unit test coverage
 Description: Added edge case tests and validated response validation outputs for API routes.
 
+[2025-12-30 09:52:02] Commit: feat(frontend): implement user Profile and Settings page
+Description: Create settings dashboard allowing users to update notification frequencies, locations, and change preferred domains.
+
