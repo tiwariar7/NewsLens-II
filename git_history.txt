@@ -832,3 +832,6 @@ Description: Added debug log options and minor settings overrides in environment
 [2025-12-30 14:16:51] Commit: style: format codebase with ruff and black
 Description: Ran linter, fixed code format, and cleaned up whitespace across files.
 
+[2025-12-30 14:59:08] Commit: chore: add configuration parameter for environment setup
+Description: Added debug log options and minor settings overrides in environment definitions.
+
