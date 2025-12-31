@@ -859,3 +859,6 @@ Description: Updated version dependencies, cleaned up lockfiles and updated envi
 [2025-12-31 11:52:14] Commit: chore: add configuration parameter for environment setup
 Description: Added debug log options and minor settings overrides in environment definitions.
 
+[2025-12-31 11:52:23] Commit: test: expand unit test coverage
+Description: Added edge case tests and validated response validation outputs for API routes.
+
