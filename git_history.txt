@@ -853,3 +853,6 @@ Description: Build personalized news home feed fetching paginated articles with 
 [2025-12-31 10:47:21] Commit: feat(frontend): implement Discover and search pages with hybrid results
 Description: Create search dashboard exposing hybrid keyword/vector search results with query highlighting and refresh buttons.
 
+[2025-12-31 11:50:56] Commit: chore: update project dependencies and package metadata
+Description: Updated version dependencies, cleaned up lockfiles and updated environment variables description.
+
