@@ -880,3 +880,6 @@ Description: Added debug log options and minor settings overrides in environment
 [2025-12-31 16:04:22] Commit: fix: resolve minor bugs and warning logs
 Description: Fixed deprecation warnings, resolved edge case errors on null pointer inputs.
 
+[2025-12-31 16:26:08] Commit: docs: update comments and docstrings in modules
+Description: Enhanced code documentation, added function signatures and parameters description.
+
