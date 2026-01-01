@@ -889,3 +889,6 @@ Description: Added debug log options and minor settings overrides in environment
 [2025-12-31 19:25:29] Commit: style: format codebase with ruff and black
 Description: Ran linter, fixed code format, and cleaned up whitespace across files.
 
+[2026-01-01 09:33:09] Commit: feat(frontend): implement Article details view and read history tracker
+Description: Build reading pane displaying full sanitized article text, category tags, and scroll-depth tracking to update reading metrics.
+
