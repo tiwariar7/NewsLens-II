@@ -907,3 +907,6 @@ Description: Fixed deprecation warnings, resolved edge case errors on null point
 [2026-01-01 16:17:57] Commit: fix: resolve minor bugs and warning logs
 Description: Fixed deprecation warnings, resolved edge case errors on null pointer inputs.
 
+[2026-01-01 18:39:46] Commit: refactor: clean up imports and variable names
+Description: Organized imports, removed unused imports, and updated local variable naming conventions for readability.
+
