@@ -943,3 +943,6 @@ Description: Fixed deprecation warnings, resolved edge case errors on null point
 [2026-01-02 18:17:19] Commit: chore: add configuration parameter for environment setup
 Description: Added debug log options and minor settings overrides in environment definitions.
 
+[2026-01-02 20:11:42] Commit: docs: update comments and docstrings in modules
+Description: Enhanced code documentation, added function signatures and parameters description.
+
