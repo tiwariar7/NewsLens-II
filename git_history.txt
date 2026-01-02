@@ -931,3 +931,6 @@ Description: Add endpoints to retrieve, save, and unsave user articles in bookma
 [2026-01-02 12:54:21] Commit: style: format codebase with ruff and black
 Description: Ran linter, fixed code format, and cleaned up whitespace across files.
 
+[2026-01-02 15:07:29] Commit: perf: optimize loops and DB queries
+Description: Optimized execution times, streamlined loops, and cached repetitive values.
+
