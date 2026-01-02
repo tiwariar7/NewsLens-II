@@ -925,3 +925,6 @@ Description: Organized imports, removed unused imports, and updated local variab
 [2026-01-01 20:56:23] Commit: style: format codebase with ruff and black
 Description: Ran linter, fixed code format, and cleaned up whitespace across files.
 
+[2026-01-02 10:09:11] Commit: feat(api): implement /bookmarks GET, POST, and DELETE endpoints
+Description: Add endpoints to retrieve, save, and unsave user articles in bookmarks, integrated with the PostgreSQL association table.
+
