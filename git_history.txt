@@ -952,3 +952,6 @@ Description: Fixed deprecation warnings, resolved edge case errors on null point
 [2026-01-03 09:13:51] Commit: feat(frontend): implement Bookmarks page grid layout
 Description: Build bookmarks library page listing saved articles with option to toggle bookmarks directly from the card.
 
+[2026-01-03 12:22:11] Commit: fix: resolve minor bugs and warning logs
+Description: Fixed deprecation warnings, resolved edge case errors on null pointer inputs.
+
