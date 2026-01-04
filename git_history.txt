@@ -979,3 +979,6 @@ Description: Create SSE stream response for conversational Q&A on individual art
 [2026-01-04 09:53:39] Commit: fix: resolve minor bugs and warning logs
 Description: Fixed deprecation warnings, resolved edge case errors on null pointer inputs.
 
+[2026-01-04 10:50:14] Commit: test: expand unit test coverage
+Description: Added edge case tests and validated response validation outputs for API routes.
+
