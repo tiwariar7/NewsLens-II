@@ -985,3 +985,6 @@ Description: Added edge case tests and validated response validation outputs for
 [2026-01-04 13:06:28] Commit: test: expand unit test coverage
 Description: Added edge case tests and validated response validation outputs for API routes.
 
+[2026-01-04 17:12:01] Commit: style: format codebase with ruff and black
+Description: Ran linter, fixed code format, and cleaned up whitespace across files.
+
