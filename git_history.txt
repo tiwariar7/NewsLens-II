@@ -973,3 +973,6 @@ Description: Added edge case tests and validated response validation outputs for
 [2026-01-04 09:07:56] Commit: feat(worker): implement daily briefing email scheduling and formatting
 Description: Create daily morning digest scheduler generating personalized email summaries using user preferences and mail services.
 
+[2026-01-04 09:50:29] Commit: feat(api): implement /article-chat streaming endpoint using Gemini 2.5
+Description: Create SSE stream response for conversational Q&A on individual articles. Prefetch article content synchronously inside request context.
+
