@@ -1033,3 +1033,6 @@ Description: Enhanced code documentation, added function signatures and paramete
 [2026-01-05 19:15:22] Commit: fix: resolve minor bugs and warning logs
 Description: Fixed deprecation warnings, resolved edge case errors on null pointer inputs.
 
+[2026-01-05 19:47:46] Commit: refactor: clean up imports and variable names
+Description: Organized imports, removed unused imports, and updated local variable naming conventions for readability.
+
