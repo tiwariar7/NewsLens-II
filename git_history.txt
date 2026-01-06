@@ -1039,3 +1039,6 @@ Description: Organized imports, removed unused imports, and updated local variab
 [2026-01-06 09:26:16] Commit: feat(api): implement 100% local NLTK-based extractive summarizer
 Description: Integrate local NLTK sentence tokenizer, stopword cleaner, and frequency scorer to generate summaries free and unlimitedly with safe fallback regex.
 
+[2026-01-06 13:00:06] Commit: chore: update project dependencies and package metadata
+Description: Updated version dependencies, cleaned up lockfiles and updated environment variables description.
+
