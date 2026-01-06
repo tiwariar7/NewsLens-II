@@ -1048,3 +1048,6 @@ Description: Added edge case tests and validated response validation outputs for
 [2026-01-06 13:48:39] Commit: test: expand unit test coverage
 Description: Added edge case tests and validated response validation outputs for API routes.
 
+[2026-01-06 18:16:21] Commit: chore: add configuration parameter for environment setup
+Description: Added debug log options and minor settings overrides in environment definitions.
+
