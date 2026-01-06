@@ -1036,3 +1036,6 @@ Description: Fixed deprecation warnings, resolved edge case errors on null point
 [2026-01-05 19:47:46] Commit: refactor: clean up imports and variable names
 Description: Organized imports, removed unused imports, and updated local variable naming conventions for readability.
 
+[2026-01-06 09:26:16] Commit: feat(api): implement 100% local NLTK-based extractive summarizer
+Description: Integrate local NLTK sentence tokenizer, stopword cleaner, and frequency scorer to generate summaries free and unlimitedly with safe fallback regex.
+
