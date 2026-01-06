@@ -1057,3 +1057,6 @@ Description: Added debug log options and minor settings overrides in environment
 [2026-01-06 19:28:29] Commit: perf: optimize loops and DB queries
 Description: Optimized execution times, streamlined loops, and cached repetitive values.
 
+[2026-01-06 19:48:23] Commit: style: format codebase with ruff and black
+Description: Ran linter, fixed code format, and cleaned up whitespace across files.
+
