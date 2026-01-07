@@ -1081,3 +1081,6 @@ Description: Fixed deprecation warnings, resolved edge case errors on null point
 [2026-01-07 19:00:24] Commit: chore: update project dependencies and package metadata
 Description: Updated version dependencies, cleaned up lockfiles and updated environment variables description.
 
+[2026-01-07 19:14:34] Commit: refactor: clean up imports and variable names
+Description: Organized imports, removed unused imports, and updated local variable naming conventions for readability.
+
