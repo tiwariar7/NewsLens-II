@@ -1084,3 +1084,6 @@ Description: Updated version dependencies, cleaned up lockfiles and updated envi
 [2026-01-07 19:14:34] Commit: refactor: clean up imports and variable names
 Description: Organized imports, removed unused imports, and updated local variable naming conventions for readability.
 
+[2026-01-07 20:28:27] Commit: style: format codebase with ruff and black
+Description: Ran linter, fixed code format, and cleaned up whitespace across files.
+
