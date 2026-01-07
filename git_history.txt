@@ -1072,3 +1072,6 @@ Description: Create summary page displaying multi-article briefings with related
 [2026-01-07 09:37:24] Commit: chore(docker): prepare production multi-stage Dockerfiles and compose configs
 Description: Optimize Dockerfiles using python:3.11-slim and node:18-alpine, including cache mount optimization and non-root execution.
 
+[2026-01-07 09:58:48] Commit: chore: update project dependencies and package metadata
+Description: Updated version dependencies, cleaned up lockfiles and updated environment variables description.
+
