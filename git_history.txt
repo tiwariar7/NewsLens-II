@@ -1105,3 +1105,6 @@ Description: Updated version dependencies, cleaned up lockfiles and updated envi
 [2026-01-08 15:19:04] Commit: style: format codebase with ruff and black
 Description: Ran linter, fixed code format, and cleaned up whitespace across files.
 
+[2026-01-08 15:19:32] Commit: test: expand unit test coverage
+Description: Added edge case tests and validated response validation outputs for API routes.
+
