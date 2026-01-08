@@ -1114,3 +1114,6 @@ Description: Organized imports, removed unused imports, and updated local variab
 [2026-01-08 16:20:23] Commit: refactor: clean up imports and variable names
 Description: Organized imports, removed unused imports, and updated local variable naming conventions for readability.
 
+[2026-01-08 16:32:36] Commit: style: format codebase with ruff and black
+Description: Ran linter, fixed code format, and cleaned up whitespace across files.
+
