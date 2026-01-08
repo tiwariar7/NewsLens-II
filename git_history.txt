@@ -1117,3 +1117,6 @@ Description: Organized imports, removed unused imports, and updated local variab
 [2026-01-08 16:32:36] Commit: style: format codebase with ruff and black
 Description: Ran linter, fixed code format, and cleaned up whitespace across files.
 
+[2026-01-08 17:18:36] Commit: docs: update comments and docstrings in modules
+Description: Enhanced code documentation, added function signatures and parameters description.
+
