@@ -1102,3 +1102,6 @@ Description: Organized imports, removed unused imports, and updated local variab
 [2026-01-08 13:58:05] Commit: chore: update project dependencies and package metadata
 Description: Updated version dependencies, cleaned up lockfiles and updated environment variables description.
 
+[2026-01-08 15:19:04] Commit: style: format codebase with ruff and black
+Description: Ran linter, fixed code format, and cleaned up whitespace across files.
+
