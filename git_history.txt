@@ -1093,3 +1093,6 @@ Description: Refactored app.py feed query to use single sorted query with intere
 [2026-01-08 10:45:15] Commit: test: expand unit test coverage
 Description: Added edge case tests and validated response validation outputs for API routes.
 
+[2026-01-08 11:11:39] Commit: chore: update project dependencies and package metadata
+Description: Updated version dependencies, cleaned up lockfiles and updated environment variables description.
+
