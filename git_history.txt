@@ -1087,3 +1087,6 @@ Description: Organized imports, removed unused imports, and updated local variab
 [2026-01-07 20:28:27] Commit: style: format codebase with ruff and black
 Description: Ran linter, fixed code format, and cleaned up whitespace across files.
 
+[2026-01-08 09:38:17] Commit: refactor(backend): optimize DB queries and eliminate N+1 loops in feed retrieval
+Description: Refactored app.py feed query to use single sorted query with interest scoring and pagination. Removed duplicate queries.
+
