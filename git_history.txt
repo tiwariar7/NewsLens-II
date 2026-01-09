@@ -1153,3 +1153,6 @@ Description: Updated version dependencies, cleaned up lockfiles and updated envi
 [2026-01-09 15:28:28] Commit: refactor: clean up imports and variable names
 Description: Organized imports, removed unused imports, and updated local variable naming conventions for readability.
 
+[2026-01-09 16:12:22] Commit: docs: update comments and docstrings in modules
+Description: Enhanced code documentation, added function signatures and parameters description.
+
