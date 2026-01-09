@@ -1132,3 +1132,6 @@ Description: Create backend test suite covering signup, login, JWT validation, a
 [2026-01-09 10:32:45] Commit: chore: update project dependencies and package metadata
 Description: Updated version dependencies, cleaned up lockfiles and updated environment variables description.
 
+[2026-01-09 10:39:23] Commit: fix: resolve minor bugs and warning logs
+Description: Fixed deprecation warnings, resolved edge case errors on null pointer inputs.
+
