@@ -1150,3 +1150,6 @@ Description: Updated version dependencies, cleaned up lockfiles and updated envi
 [2026-01-09 15:26:40] Commit: chore: update project dependencies and package metadata
 Description: Updated version dependencies, cleaned up lockfiles and updated environment variables description.
 
+[2026-01-09 15:28:28] Commit: refactor: clean up imports and variable names
+Description: Organized imports, removed unused imports, and updated local variable naming conventions for readability.
+
