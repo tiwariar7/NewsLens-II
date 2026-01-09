@@ -1126,3 +1126,6 @@ Description: Fixed deprecation warnings, resolved edge case errors on null point
 [2026-01-08 18:44:24] Commit: style: format codebase with ruff and black
 Description: Ran linter, fixed code format, and cleaned up whitespace across files.
 
+[2026-01-09 09:28:46] Commit: test(backend): add unit tests for authentication and API validation
+Description: Create backend test suite covering signup, login, JWT validation, and input checking errors.
+
