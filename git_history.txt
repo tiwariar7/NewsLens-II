@@ -1165,3 +1165,6 @@ Description: Fixed deprecation warnings, resolved edge case errors on null point
 [2026-01-09 20:48:05] Commit: style: format codebase with ruff and black
 Description: Ran linter, fixed code format, and cleaned up whitespace across files.
 
+[2026-01-10 09:41:40] Commit: docs(architecture): compile final production release documents and deployment guide
+Description: Create architectural overview doc and release notes detailing the transition to the local NLTK model.
+
