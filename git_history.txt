@@ -1177,3 +1177,6 @@ Description: Added edge case tests and validated response validation outputs for
 [2026-01-10 14:32:51] Commit: fix: resolve minor bugs and warning logs
 Description: Fixed deprecation warnings, resolved edge case errors on null pointer inputs.
 
+[2026-01-10 15:19:22] Commit: chore: add configuration parameter for environment setup
+Description: Added debug log options and minor settings overrides in environment definitions.
+
