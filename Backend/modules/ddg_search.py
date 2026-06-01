@@ -108,11 +108,35 @@ def fetch_historical_search(query, max_results=10, search_mode="historical"):
         
         # If we have enough high-quality Tier 1/2 results, filter out Tier 3
         top_tier_only = [r for r in ranked_results if r["tier_score"] <= 2]
-        if len(top_tier_only) >= max_results:
-            return top_tier_only[:max_results]
+        
+        if len(top_tier_only) > 0:
+            final_results = top_tier_only[:max_results]
+        else:
+            final_results = ranked_results[:max_results]
             
-        return ranked_results[:max_results]
+        if not final_results:
+            raise Exception("No results found from DDG, forcing fallback.")
+            
+        return final_results
         
     except Exception as e:
-        logger.error(f"DDG Search error for {query}: {e}")
-        return []
+        logger.warning(f"DDG Search failed or empty for '{query}', falling back to Google News RSS: {e}")
+        from modules.rss_ingest import fetch_google_news_rss
+        rss_result = fetch_google_news_rss(query)
+        articles = rss_result.get('articles', [])
+        
+        fallback_results = []
+        for art in articles:
+            tier_score, tier_label = get_source_tier(art.get('url', ''))
+            fallback_results.append({
+                "title": art.get('title', ''),
+                "url": art.get('url', ''),
+                "description": art.get('description', ''),
+                "source": urlparse(art.get('url', '')).netloc,
+                "tier_score": tier_score,
+                "tier_label": tier_label,
+                "publishedAt": art.get('publishedAt')
+            })
+            
+        fallback_results.sort(key=lambda x: x["tier_score"])
+        return fallback_results[:max_results]
