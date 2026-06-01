@@ -556,6 +556,7 @@ def summarize(current_user):
         return jsonify({"error": f"Summarization failed: {str(e)}"}), 500
 
 @app.route("/record-read", methods=["POST", "OPTIONS"])
+@limiter.exempt
 @token_required
 def record_read(current_user):
     if request.method == "OPTIONS":
@@ -596,6 +597,7 @@ def record_read(current_user):
 
 
 @app.route("/analytics", methods=["GET", "OPTIONS"])
+@limiter.exempt
 @token_required
 def analytics(current_user):
     if request.method == "OPTIONS":
