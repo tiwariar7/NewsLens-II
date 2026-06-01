@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Sparkles, ArrowLeft, Eye, EyeOff } from "lucide-react";
 import { recordArticleRead } from "@/lib/api";
+import { ArticleChatModal } from "@/components/shared/ArticleChatModal";
 
 // ─── Entity Highlight Config ──────────────────────────────────────────────────
 
@@ -68,6 +69,7 @@ export default function ArticleDetailsPage() {
   const router = useRouter();
   const article = useArticleStore((state) => state.selectedArticle);
   const [highlightEnabled, setHighlightEnabled] = useState(false);
+  const [isChatOpen, setIsChatOpen] = useState(false);
   const startTimeRef = useRef<number>(Date.now());
 
   useEffect(() => {
@@ -220,8 +222,19 @@ export default function ArticleDetailsPage() {
             <Sparkles className="h-4 w-4" />
             View AI Summary
           </Button>
+          <Button onClick={() => setIsChatOpen(true)} variant="secondary" size="lg" className="flex-1 gap-2 text-primary border border-primary/20 bg-primary/10 hover:bg-primary/20">
+            <Sparkles className="h-4 w-4" />
+            Ask AI
+          </Button>
         </div>
       </article>
+
+      {/* AI Chat Modal */}
+      <ArticleChatModal 
+        article={article} 
+        isOpen={isChatOpen} 
+        onClose={() => setIsChatOpen(false)} 
+      />
     </div>
   );
 }
