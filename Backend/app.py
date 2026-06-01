@@ -16,7 +16,7 @@ from modules.content import fetch_full_content
 from modules.sentiment import analyze_sentiments
 from modules.summarizer import gemini_summarizer
 
-from models import db, User, Article, SavedArticle
+from models import db, User, Article, SavedArticle, ArticleReadHistory
 from cache import r
 from flask_migrate import Migrate
 

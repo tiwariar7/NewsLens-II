@@ -98,5 +98,17 @@ class Article(db.Model):
             "entities": self.entities or {}
         }
 
+class ArticleReadHistory(db.Model):
+    __tablename__ = 'article_read_history'
+    
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id', ondelete='CASCADE'), nullable=False, index=True)
+    article_id = db.Column(db.Integer, db.ForeignKey('articles.id', ondelete='CASCADE'), nullable=False, index=True)
+    read_at = db.Column(db.DateTime, server_default=db.func.now(), nullable=False)
+    read_duration_seconds = db.Column(db.Integer, default=0, nullable=False)
+    
+    user = db.relationship('User', backref=db.backref('read_history', cascade='all, delete-orphan'))
+    article = db.relationship('Article', backref=db.backref('read_by_users', cascade='all, delete-orphan'))
+
 # Index for full-text search performance
 db.Index('fts_idx', Article.fts_document, postgresql_using='gin')
