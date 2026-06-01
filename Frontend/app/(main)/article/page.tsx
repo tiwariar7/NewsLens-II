@@ -74,14 +74,17 @@ export default function ArticleDetailsPage() {
     if (!article) router.replace("/dashboard");
   }, [article, router]);
 
-  // Record read duration periodically (every 5 seconds)
+  // Record read duration periodically (immediately + every 5 seconds)
   useEffect(() => {
     if (!article?.id) return;
     startTimeRef.current = Date.now();
     
+    // Immediate ping so it updates "as soon as I view an article"
+    recordArticleRead(article.id, 1).catch(() => {});
+    
     const intervalId = setInterval(() => {
       const duration = Math.round((Date.now() - startTimeRef.current) / 1000);
-      if (duration >= 3) {
+      if (duration >= 1) {
         recordArticleRead(article.id, duration).catch(() => {});
       }
     }, 5000);
@@ -89,7 +92,7 @@ export default function ArticleDetailsPage() {
     return () => {
       clearInterval(intervalId);
       const duration = Math.round((Date.now() - startTimeRef.current) / 1000);
-      if (duration >= 3) {
+      if (duration >= 1) {
         recordArticleRead(article.id, duration).catch(() => {});
       }
     };

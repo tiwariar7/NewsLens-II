@@ -7,6 +7,8 @@ import { Bot, Sparkles, X, Loader2, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useAuthStore } from "@/lib/authStore";
+import { recordArticleRead } from "@/lib/api";
+import { useRef } from "react";
 
 interface ArticleChatModalProps {
   article: BackendArticle;
@@ -36,6 +38,31 @@ export function ArticleChatModal({ article, isOpen, onClose }: ArticleChatModalP
     else document.body.style.overflow = "unset";
     return () => { document.body.style.overflow = "unset"; };
   }, [isOpen]);
+
+  // Track read duration while modal is open
+  const startTimeRef = useRef<number>(Date.now());
+  useEffect(() => {
+    if (!isOpen || !article?.id) return;
+    startTimeRef.current = Date.now();
+    
+    // Immediate ping
+    recordArticleRead(article.id, 1).catch(() => {});
+    
+    const intervalId = setInterval(() => {
+      const duration = Math.round((Date.now() - startTimeRef.current) / 1000);
+      if (duration >= 1) {
+        recordArticleRead(article.id, duration).catch(() => {});
+      }
+    }, 5000);
+
+    return () => {
+      clearInterval(intervalId);
+      const duration = Math.round((Date.now() - startTimeRef.current) / 1000);
+      if (duration >= 1) {
+        recordArticleRead(article.id, duration).catch(() => {});
+      }
+    };
+  }, [isOpen, article?.id]);
 
   if (!isOpen) return null;
 

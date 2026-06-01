@@ -57,10 +57,19 @@ export default function AnalyticsPage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetchAnalytics()
-      .then(setData)
-      .catch(() => setError("Could not load analytics. Try reading a few articles first!"))
-      .finally(() => setLoading(false));
+    const loadData = () => {
+      fetchAnalytics()
+        .then(setData)
+        .catch(() => setError("Could not load analytics. Try reading a few articles first!"))
+        .finally(() => setLoading(false));
+    };
+
+    // Initial load
+    loadData();
+
+    // Auto-refresh every 5 seconds for real-time dashboard feel
+    const interval = setInterval(loadData, 5000);
+    return () => clearInterval(interval);
   }, []);
 
   const totalMinutes = data.weekly_reading_time.reduce((s, d) => s + d.minutes, 0);

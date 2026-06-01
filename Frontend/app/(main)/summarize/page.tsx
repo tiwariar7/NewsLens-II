@@ -8,10 +8,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
 import { ExternalLink, List, FileText, Bookmark } from "lucide-react";
 import { useArticleStore } from "@/lib/articleStore";
-import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { recordArticleRead } from "@/lib/api";
 
 // --- MODIFIED SKELETON ---
 // This skeleton now matches the structure of the final page,
@@ -75,6 +75,31 @@ export default function SummarizePage() {
       router.replace("/dashboard");
     }
   }, [article, router]);
+
+  // Record read duration periodically while viewing summary
+  const startTimeRef = useRef<number>(Date.now());
+  useEffect(() => {
+    if (!article?.id) return;
+    startTimeRef.current = Date.now();
+    
+    // Immediate ping
+    recordArticleRead(article.id, 1).catch(() => {});
+    
+    const intervalId = setInterval(() => {
+      const duration = Math.round((Date.now() - startTimeRef.current) / 1000);
+      if (duration >= 1) {
+        recordArticleRead(article.id, duration).catch(() => {});
+      }
+    }, 5000);
+
+    return () => {
+      clearInterval(intervalId);
+      const duration = Math.round((Date.now() - startTimeRef.current) / 1000);
+      if (duration >= 1) {
+        recordArticleRead(article.id, duration).catch(() => {});
+      }
+    };
+  }, [article?.id]);
 
   const handleBookmarkToggle = async () => {
     if (!article || !article.id) return;
