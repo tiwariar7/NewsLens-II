@@ -61,7 +61,7 @@ def find_related_articles_db(article_url, limit=9):
 
     # 2. Find closest neighbors using pgvector cosine distance
     related_local = []
-    if emb:
+    if emb is not None:
         try:
             related_local = Article.query.filter(
                 Article.url != article_url,
