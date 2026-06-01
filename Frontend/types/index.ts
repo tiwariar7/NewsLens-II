@@ -88,11 +88,13 @@ export interface WeeklyReadingDay {
 export interface CategoryStat {
   name: string;
   value: number;
+  [key: string]: any;
 }
 
 export interface SentimentStat {
   label: string;
   value: number;
+  [key: string]: any;
 }
 
 export interface AnalyticsResponse {
