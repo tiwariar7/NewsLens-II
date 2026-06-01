@@ -69,7 +69,8 @@ def execute_hybrid_search(query_text, limit=20, page=1):
                 Article.id,
                 Article.embedding.cosine_distance(query_vector).label('distance')
             ).filter(
-                Article.embedding.isnot(None)
+                Article.embedding.isnot(None),
+                Article.embedding.cosine_distance(query_vector) < 0.45
             ).order_by(
                 'distance'
             ).limit(100).all()
