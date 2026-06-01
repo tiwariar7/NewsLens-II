@@ -33,3 +33,4 @@ googlenewsdecoder
 rq-scheduler
 schedule
 Flask-Mail
+duckduckgo-search

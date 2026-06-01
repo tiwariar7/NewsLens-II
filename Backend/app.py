@@ -475,6 +475,93 @@ def chat(current_user):
     # 2. Return SSE response
     return Response(generate_rag_response_stream(query, context_articles), mimetype='text/event-stream')
 
+@app.route("/historical-search", methods=["POST", "OPTIONS"])
+@limiter.exempt
+@token_required
+def historical_search(current_user):
+    if request.method == "OPTIONS":
+        return jsonify({"message": "CORS preflight"}), 200
+        
+    data = request.get_json() or {}
+    query = data.get('query', '')
+    mode = data.get('mode', 'historical')
+    
+    if not query:
+        return jsonify({"error": "Search query is required"}), 400
+        
+    cache_key = f"historical:{mode}:{query}"
+    try:
+        cached_val = r.get(cache_key)
+        if cached_val:
+            return jsonify(json.loads(cached_val)), 200
+    except Exception as e:
+        app.logger.warning(f"Redis get error: {e}")
+        
+    from modules.ddg_search import fetch_historical_search
+    results = fetch_historical_search(query, max_results=10, search_mode=mode)
+    
+    response_data = {
+        "articles": results,
+        "totalResults": len(results),
+        "page": 1,
+        "mode": mode
+    }
+    
+    try:
+        # Cache for 24 hours (86400 seconds)
+        r.setex(cache_key, 86400, json.dumps(response_data))
+    except Exception as e:
+        app.logger.warning(f"Redis setex error: {e}")
+        
+    return jsonify(response_data), 200
+
+@app.route("/scrape-ephemeral", methods=["POST", "OPTIONS"])
+@limiter.exempt
+@token_required
+def scrape_ephemeral(current_user):
+    if request.method == "OPTIONS":
+        return jsonify({"message": "CORS preflight"}), 200
+        
+    data = request.get_json() or {}
+    url = data.get('url', '')
+    
+    if not url:
+        return jsonify({"error": "URL is required"}), 400
+        
+    import hashlib
+    url_hash = hashlib.sha256(url.encode('utf-8')).hexdigest()
+    cache_key = f"scrape:{url_hash}"
+    
+    try:
+        cached_val = r.get(cache_key)
+        if cached_val:
+            return jsonify(json.loads(cached_val)), 200
+    except Exception:
+        pass
+        
+    from modules.scrape_article import scrape_article
+    from modules.content import clean_and_format_content
+    raw_content, metadata = scrape_article(url, use_cache=True)
+    
+    if not raw_content:
+        return jsonify({"error": "Failed to scrape article content."}), 500
+        
+    clean_content = clean_and_format_content(raw_content)
+    
+    response_data = {
+        "url": url,
+        "title": metadata.get('title', ''),
+        "content": clean_content,
+        "publishedAt": metadata.get('publish_date', '')
+    }
+    
+    try:
+        r.setex(cache_key, 86400, json.dumps(response_data))
+    except Exception:
+        pass
+        
+    return jsonify(response_data), 200
+
 @app.route("/article-chat", methods=["POST", "OPTIONS"])
 @token_required
 def article_chat(current_user):
