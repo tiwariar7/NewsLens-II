@@ -10,6 +10,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { SearchIcon, ChevronLeft, ChevronRight, Loader2 } from "lucide-react";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useAuthStore } from "@/lib/authStore";
 import { useRouter } from "next/navigation";
 
@@ -28,6 +29,8 @@ export default function SearchPage() {
   const router = useRouter();
   const [query, setQuery] = useState("");
   const [submittedQuery, setSubmittedQuery] = useState("");
+  const [searchMode, setSearchMode] = useState("recent");
+  const [submittedMode, setSubmittedMode] = useState("recent");
   const [page, setPage] = useState(1);
   const [isChecking, setIsChecking] = useState(true);
 
@@ -41,8 +44,14 @@ export default function SearchPage() {
   }, [token, user, router]);
 
   const { data, isLoading, error, isFetching, refetch } = useQuery({
-    queryKey: ["searchNews", submittedQuery, page],
-    queryFn: () => api.searchNews(submittedQuery, page),
+    queryKey: ["searchNews", submittedQuery, page, submittedMode],
+    queryFn: () => {
+      if (submittedMode === "recent") {
+        return api.searchNews(submittedQuery, page);
+      } else {
+        return api.historicalSearch(submittedQuery, submittedMode);
+      }
+    },
     enabled: submittedQuery !== "" && !!token && !isChecking,
   });
 
@@ -51,6 +60,7 @@ export default function SearchPage() {
     if (query.trim()) {
       setPage(1);
       setSubmittedQuery(query.trim());
+      setSubmittedMode(searchMode);
     }
   };
 
@@ -83,24 +93,34 @@ export default function SearchPage() {
         {/* Search Form */}
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col sm:flex-row w-full max-w-2xl mx-auto gap-2"
+          className="flex flex-col w-full max-w-2xl mx-auto gap-4"
         >
-          <Input
-            type="text"
-            placeholder="Search for topics, e.g., 'AI'"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            className="flex-1 h-10 md:h-11"
-          />
-          <Button 
-            type="submit" 
-            size="default" 
-            disabled={isLoading || !query.trim()}
-            className="w-full sm:w-auto"
-          >
-            <SearchIcon className="h-4 w-4 mr-2" />
-            Search
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-2">
+            <Input
+              type="text"
+              placeholder="Search for topics, e.g., 'AI'"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              className="flex-1 h-10 md:h-11"
+            />
+            <Button 
+              type="submit" 
+              size="default" 
+              disabled={isLoading || !query.trim()}
+              className="w-full sm:w-auto"
+            >
+              <SearchIcon className="h-4 w-4 mr-2" />
+              Search
+            </Button>
+          </div>
+          
+          <Tabs value={searchMode} onValueChange={setSearchMode} className="w-full">
+            <TabsList className="grid w-full grid-cols-3">
+              <TabsTrigger value="recent">Recent News</TabsTrigger>
+              <TabsTrigger value="historical">Historical Search</TabsTrigger>
+              <TabsTrigger value="research">Research Mode</TabsTrigger>
+            </TabsList>
+          </Tabs>
         </form>
       </div>
 

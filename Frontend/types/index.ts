@@ -50,6 +50,9 @@ export interface BackendArticle {
   category?: string | null;
   entities?: Record<string, NamedEntity[]> | null;
   grouped_sources?: { title: string; source: string; url: string }[];
+  mode?: string;
+  tier_label?: string;
+  tier_score?: number;
 }
 
 // The response from your /news and /search endpoints

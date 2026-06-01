@@ -30,6 +30,7 @@ export function ArticleCard({ article }: ArticleCardProps) {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [isBookmarking, setIsBookmarking] = useState(false);
+  const [isScraping, setIsScraping] = useState(false);
   const [animateBounce, setAnimateBounce] = useState(false);
   const btnRef = useRef<HTMLButtonElement>(null);
 
@@ -110,15 +111,34 @@ export function ArticleCard({ article }: ArticleCardProps) {
       })
     : null;
 
-  const handleViewSummary = () => {
-    setSelectedArticle(article);
-    router.push(`/summarize`);
+  const handleAction = async (action: 'view' | 'summarize') => {
+    if ((article.mode === 'historical' || article.mode === 'research') && (!article.content || article.content.trim() === "")) {
+      setIsScraping(true);
+      try {
+        const scraped = await api.scrapeEphemeral(article.url);
+        const fullArticle = { 
+          ...article, 
+          content: scraped.content, 
+          publishedAt: scraped.publishedAt || article.publishedAt 
+        };
+        setSelectedArticle(fullArticle);
+        router.push(action === 'view' ? "/article" : "/summarize");
+      } catch (error) {
+        console.error("Scrape failed", error);
+        toast.error("Failed to load article content", {
+          description: "We couldn't extract the full text for this deep search result."
+        });
+      } finally {
+        setIsScraping(false);
+      }
+    } else {
+      setSelectedArticle(article);
+      router.push(action === 'view' ? "/article" : "/summarize");
+    }
   };
 
-  const handleViewArticle = () => {
-    setSelectedArticle(article);
-    router.push(`/article`);
-  };
+  const handleViewArticle = () => handleAction('view');
+  const handleViewSummary = () => handleAction('summarize');
 
   return (
     <Card className="group flex h-full flex-col overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
@@ -209,6 +229,11 @@ export function ArticleCard({ article }: ArticleCardProps) {
           >
             {article.source?.name || "Unknown Source"}
           </span>
+          {article.tier_label && (
+             <Badge variant="outline" className={cn("text-[10px] h-4 px-1 py-0 shadow-none bg-background", article.tier_score === 1 ? "border-emerald-500/50 text-emerald-600 dark:text-emerald-400" : "border-blue-500/50 text-blue-600 dark:text-blue-400")}>
+               {article.tier_label}
+             </Badge>
+          )}
           {formattedDate && (
             <span className="text-muted-foreground text-xs shrink-0">
               {formattedDate}
@@ -225,11 +250,19 @@ export function ArticleCard({ article }: ArticleCardProps) {
       </CardFooter>
 
       {/* Action Buttons */}
-      <CardFooter className="flex flex-row justify-between items-stretch gap-2 border-t pt-3">
+      <CardFooter className="flex flex-row justify-between items-stretch gap-2 border-t pt-3 relative">
+        {isScraping && (
+          <div className="absolute inset-0 bg-background/50 backdrop-blur-[2px] z-10 flex items-center justify-center rounded-b-xl border-t">
+             <span className="text-xs font-medium animate-pulse text-primary flex items-center gap-2">
+               Scraping Article...
+             </span>
+          </div>
+        )}
         <Button
           onClick={handleViewArticle}
           variant="ghost"
           size="sm"
+          disabled={isScraping}
           className="flex-1 transition-all hover:scale-105 text-xs sm:text-sm px-0"
         >
           View
@@ -239,7 +272,8 @@ export function ArticleCard({ article }: ArticleCardProps) {
           onClick={handleViewSummary}
           variant="outline"
           size="sm"
-          className="flex-1 transition-all hover:scale-105 text-xs sm:text-sm"
+          disabled={isScraping}
+          className="flex-1 gap-1.5 transition-all hover:scale-105 text-xs sm:text-sm border-primary/20 hover:bg-primary/5 hover:text-primary"
         >
           Summary
         </Button>
@@ -248,7 +282,8 @@ export function ArticleCard({ article }: ArticleCardProps) {
           onClick={() => setIsChatOpen(true)}
           variant="secondary"
           size="sm"
-          className="flex-1 transition-all hover:scale-105 text-xs sm:text-sm text-primary gap-1 border border-primary/20 bg-primary/10 hover:bg-primary/20 px-0"
+          disabled={isScraping}
+          className="flex-[0.5] sm:flex-1 transition-all hover:scale-105 text-xs sm:text-sm bg-primary/10 text-primary hover:bg-primary/20 px-0 sm:px-3"
         >
           <Sparkles className="w-3 h-3" />
           Ask AI

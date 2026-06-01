@@ -71,6 +71,33 @@ export const updatePreferences = (email: string, preferred_domains: string[], co
 
 // ==================== NEWS API ====================
 
+export const articleChat = (query: string, articleContent: string, articleTitle: string): Promise<Response> => {
+  return fetch(`${API_BASE_URL}/article-chat`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${getAuthToken()}`,
+    },
+    body: JSON.stringify({ query, article_content: articleContent, article_title: articleTitle }),
+  });
+};
+
+// ==================== HISTORICAL SEARCH API ====================
+
+export const historicalSearch = (query: string, mode: string = 'historical'): Promise<{ articles: Article[], totalResults: number, page: number, mode: string }> => {
+  return apiFetch('/historical-search', {
+    method: 'POST',
+    body: JSON.stringify({ query, mode }),
+  });
+};
+
+export const scrapeEphemeral = (url: string): Promise<{ url: string, title: string, content: string, publishedAt: string }> => {
+  return apiFetch('/scrape-ephemeral', {
+    method: 'POST',
+    body: JSON.stringify({ url }),
+  });
+};
+
 export const fetchNews = (email: string, category: string | null, page: number): Promise<NewsApiResponse> => {
   return apiFetch('/news', {
     method: 'POST',
