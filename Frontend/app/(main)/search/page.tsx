@@ -172,7 +172,7 @@ export default function SearchPage() {
         {submittedQuery && !isLoading && !error && data && data.status !== "processing" && (
           <>
             {page === 1 && data.articles.length > 0 && (
-              <ChatInterface query={submittedQuery} />
+              <ChatInterface query={submittedQuery} contextArticles={data.articles.slice(0, 5)} />
             )}
 
             <div className="mb-6">

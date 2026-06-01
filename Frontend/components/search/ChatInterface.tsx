@@ -6,11 +6,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Sparkles, Loader2, Bot } from "lucide-react";
 import { useAuthStore } from "@/lib/authStore";
 
+import { BackendArticle } from "@/types";
+
 interface ChatInterfaceProps {
   query: string;
+  contextArticles?: BackendArticle[];
 }
 
-export function ChatInterface({ query }: ChatInterfaceProps) {
+export function ChatInterface({ query, contextArticles }: ChatInterfaceProps) {
   const [response, setResponse] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -33,7 +36,7 @@ export function ChatInterface({ query }: ChatInterfaceProps) {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${token}`
           },
-          body: JSON.stringify({ query })
+          body: JSON.stringify({ query, context_articles: contextArticles })
         });
 
         if (!res.ok) {

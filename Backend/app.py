@@ -461,16 +461,20 @@ def chat(current_user):
     
     data = request.get_json() or {}
     query = data.get('query', '')
+    provided_context = data.get('context_articles', None)
     
     if not query:
         return jsonify({"error": "Search query is required"}), 400
 
-    from modules.hybrid_search import execute_hybrid_search
     from modules.chat import generate_rag_response_stream
     
-    # 1. Execute Hybrid Search for Context
-    search_results = execute_hybrid_search(query, limit=5, page=1)
-    context_articles = search_results.get("articles", [])
+    if provided_context is not None:
+        context_articles = provided_context
+    else:
+        from modules.hybrid_search import execute_hybrid_search
+        # 1. Execute Hybrid Search for Context
+        search_results = execute_hybrid_search(query, limit=5, page=1)
+        context_articles = search_results.get("articles", [])
     
     # 2. Return SSE response
     return Response(generate_rag_response_stream(query, context_articles), mimetype='text/event-stream')
