@@ -74,13 +74,22 @@ export default function ArticleDetailsPage() {
     if (!article) router.replace("/dashboard");
   }, [article, router]);
 
-  // Record read duration when the user navigates away
+  // Record read duration periodically (every 5 seconds)
   useEffect(() => {
     if (!article?.id) return;
     startTimeRef.current = Date.now();
-    return () => {
+    
+    const intervalId = setInterval(() => {
       const duration = Math.round((Date.now() - startTimeRef.current) / 1000);
-      if (duration > 3) {
+      if (duration >= 3) {
+        recordArticleRead(article.id, duration).catch(() => {});
+      }
+    }, 5000);
+
+    return () => {
+      clearInterval(intervalId);
+      const duration = Math.round((Date.now() - startTimeRef.current) / 1000);
+      if (duration >= 3) {
         recordArticleRead(article.id, duration).catch(() => {});
       }
     };

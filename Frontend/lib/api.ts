@@ -128,6 +128,7 @@ export const recordArticleRead = (article_id: number, duration_seconds: number):
   return apiFetch('/record-read', {
     method: 'POST',
     body: JSON.stringify({ article_id, duration_seconds }),
+    keepalive: true,
   });
 };
 

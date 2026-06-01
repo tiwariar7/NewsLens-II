@@ -568,12 +568,26 @@ def record_read(current_user):
         return jsonify({"error": "article_id is required"}), 400
 
     try:
-        record = ArticleReadHistory(
-            user_id=current_user.id,
-            article_id=int(article_id),
-            read_duration_seconds=int(duration_seconds)
-        )
-        db.session.add(record)
+        from sqlalchemy import cast, Date
+        from datetime import datetime
+        
+        today = datetime.utcnow().date()
+        record = ArticleReadHistory.query.filter(
+            ArticleReadHistory.user_id == current_user.id,
+            ArticleReadHistory.article_id == int(article_id),
+            cast(ArticleReadHistory.read_at, Date) == today
+        ).first()
+
+        if record:
+            record.read_duration_seconds = max(record.read_duration_seconds, int(duration_seconds))
+        else:
+            record = ArticleReadHistory(
+                user_id=current_user.id,
+                article_id=int(article_id),
+                read_duration_seconds=int(duration_seconds)
+            )
+            db.session.add(record)
+            
         db.session.commit()
         return jsonify({"message": "Read recorded"}), 201
     except Exception as e:
@@ -620,12 +634,12 @@ def analytics(current_user):
     category_reads = (
         db.session.query(
             Article.category,
-            sql_func.count(ArticleReadHistory.id).label('count')
+            sql_func.count(sql_func.distinct(ArticleReadHistory.article_id)).label('count')
         )
         .join(Article, Article.id == ArticleReadHistory.article_id)
         .filter(ArticleReadHistory.user_id == user_id)
         .group_by(Article.category)
-        .order_by(sql_func.count(ArticleReadHistory.id).desc())
+        .order_by(sql_func.count(sql_func.distinct(ArticleReadHistory.article_id)).desc())
         .limit(6)
         .all()
     )
@@ -642,6 +656,7 @@ def analytics(current_user):
             ArticleReadHistory.user_id == user_id,
             Article.sentiment_polarity.isnot(None)
         )
+        .distinct(Article.id)
         .all()
     )
     positive = sum(1 for row in sentiment_reads if row.sentiment_polarity > 0.05)
