@@ -555,6 +555,111 @@ def summarize(current_user):
     except Exception as e:
         return jsonify({"error": f"Summarization failed: {str(e)}"}), 500
 
+@app.route("/record-read", methods=["POST", "OPTIONS"])
+@token_required
+def record_read(current_user):
+    if request.method == "OPTIONS":
+        return jsonify({"message": "CORS preflight"}), 200
+    data = request.get_json() or {}
+    article_id = data.get('article_id')
+    duration_seconds = data.get('duration_seconds', 0)
+
+    if not article_id:
+        return jsonify({"error": "article_id is required"}), 400
+
+    try:
+        record = ArticleReadHistory(
+            user_id=current_user.id,
+            article_id=int(article_id),
+            read_duration_seconds=int(duration_seconds)
+        )
+        db.session.add(record)
+        db.session.commit()
+        return jsonify({"message": "Read recorded"}), 201
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"error": f"Failed to record read: {str(e)}"}), 500
+
+
+@app.route("/analytics", methods=["GET", "OPTIONS"])
+@token_required
+def analytics(current_user):
+    if request.method == "OPTIONS":
+        return jsonify({"message": "CORS preflight"}), 200
+
+    from sqlalchemy import func as sql_func, cast, Date
+
+    user_id = current_user.id
+    now = datetime.utcnow()
+    seven_days_ago = now - timedelta(days=7)
+
+    # ── 1. Weekly Reading Time (minutes per day, last 7 days) ──
+    daily_reads = (
+        db.session.query(
+            cast(ArticleReadHistory.read_at, Date).label('day'),
+            sql_func.sum(ArticleReadHistory.read_duration_seconds).label('total_seconds')
+        )
+        .filter(
+            ArticleReadHistory.user_id == user_id,
+            ArticleReadHistory.read_at >= seven_days_ago
+        )
+        .group_by('day')
+        .order_by('day')
+        .all()
+    )
+    weekly_reading_time = []
+    for i in range(7):
+        day = (seven_days_ago + timedelta(days=i + 1)).date()
+        matched = next((row for row in daily_reads if row.day == day), None)
+        weekly_reading_time.append({
+            "day": day.strftime("%a"),
+            "minutes": round((matched.total_seconds or 0) / 60, 1) if matched else 0
+        })
+
+    # ── 2. Top Categories ──
+    category_reads = (
+        db.session.query(
+            Article.category,
+            sql_func.count(ArticleReadHistory.id).label('count')
+        )
+        .join(Article, Article.id == ArticleReadHistory.article_id)
+        .filter(ArticleReadHistory.user_id == user_id)
+        .group_by(Article.category)
+        .order_by(sql_func.count(ArticleReadHistory.id).desc())
+        .limit(6)
+        .all()
+    )
+    top_categories = [
+        {"name": (row.category or "General").title(), "value": row.count}
+        for row in category_reads
+    ]
+
+    # ── 3. Sentiment Bias ──
+    sentiment_reads = (
+        db.session.query(Article.sentiment_polarity)
+        .join(Article, Article.id == ArticleReadHistory.article_id)
+        .filter(
+            ArticleReadHistory.user_id == user_id,
+            Article.sentiment_polarity.isnot(None)
+        )
+        .all()
+    )
+    positive = sum(1 for row in sentiment_reads if row.sentiment_polarity > 0.05)
+    negative = sum(1 for row in sentiment_reads if row.sentiment_polarity < -0.05)
+    neutral = len(sentiment_reads) - positive - negative
+
+    return jsonify({
+        "weekly_reading_time": weekly_reading_time,
+        "top_categories": top_categories,
+        "sentiment_bias": [
+            {"label": "Positive", "value": positive},
+            {"label": "Neutral",  "value": neutral},
+            {"label": "Negative", "value": negative},
+        ],
+        "total_articles_read": len(sentiment_reads)
+    }), 200
+
+
 @app.route("/ingest/status/<task_id>", methods=["GET"])
 def ingest_status(task_id):
     return Response(event_stream(task_id), mimetype='text/event-stream')

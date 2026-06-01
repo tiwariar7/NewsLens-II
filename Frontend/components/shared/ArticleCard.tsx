@@ -115,6 +115,11 @@ export function ArticleCard({ article }: ArticleCardProps) {
     router.push(`/summarize`);
   };
 
+  const handleViewArticle = () => {
+    setSelectedArticle(article);
+    router.push(`/article`);
+  };
+
   return (
     <Card className="group flex h-full flex-col overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
       {/* Image Section */}
@@ -171,10 +176,28 @@ export function ArticleCard({ article }: ArticleCardProps) {
       </CardHeader>
 
       {/* Description Section */}
-      <CardContent className="pb-3 pt-0">
+      <CardContent className="pb-3 pt-0 space-y-2">
         <p className="line-clamp-3 text-xs sm:text-sm text-muted-foreground leading-relaxed">
           {article.description || "No description available."}
         </p>
+        {article.grouped_sources && article.grouped_sources.length > 0 && (
+          <p className="text-[11px] text-muted-foreground/70 italic">
+            Also covered by:{" "}
+            {article.grouped_sources.map((gs, i) => (
+              <span key={i}>
+                <a
+                  href={gs.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-2 hover:text-primary transition-colors"
+                >
+                  {gs.source}
+                </a>
+                {i < article.grouped_sources!.length - 1 ? ", " : ""}
+              </span>
+            ))}
+          </p>
+        )}
       </CardContent>
 
       {/* Source and Sentiment Badge - at bottom */}
@@ -201,8 +224,17 @@ export function ArticleCard({ article }: ArticleCardProps) {
         </Badge>
       </CardFooter>
 
-      {/* Action Buttons - Always Side by Side */}
+      {/* Action Buttons */}
       <CardFooter className="flex flex-row justify-between items-stretch gap-2 border-t pt-3">
+        <Button
+          onClick={handleViewArticle}
+          variant="ghost"
+          size="sm"
+          className="flex-1 transition-all hover:scale-105 text-xs sm:text-sm px-0"
+        >
+          View
+        </Button>
+
         <Button
           onClick={handleViewSummary}
           variant="outline"
@@ -228,7 +260,7 @@ export function ArticleCard({ article }: ArticleCardProps) {
           className="flex-1 transition-all hover:scale-105 text-xs sm:text-sm px-0"
         >
           <a href={article.url} target="_blank" rel="noopener noreferrer">
-            Read Full
+            Read
           </a>
         </Button>
       </CardFooter>

@@ -22,9 +22,17 @@ export interface ApiError {
   details?: string;
 }
 
+// Named entity extracted by spaCy
+export interface NamedEntity {
+  text: string;
+  label: string; // e.g. PERSON, ORG, GPE, MONEY, DATE
+  start: number;
+  end: number;
+}
+
 // The article object from your /news and /search endpoints
 export interface BackendArticle {
-  id?: number;
+  id: number;
   title: string;
   source: {
     id: string | null;
@@ -34,11 +42,14 @@ export interface BackendArticle {
   urlToImage: string | null;
   publishedAt: string; // ISO string
   description: string;
-  content: string | null; // This is your scraped content
+  content: string | null;
   sentiment: {
     raw_polarity: number;
     raw_subjectivity: number;
   } | null;
+  category?: string | null;
+  entities?: Record<string, NamedEntity[]> | null;
+  grouped_sources?: { title: string; source: string; url: string }[];
 }
 
 // The response from your /news and /search endpoints
@@ -59,10 +70,34 @@ export interface SummarizeInfo {
 
 export interface SummaryArticle {
   title: "Summary";
-  description: string; // The summary text
+  description: string;
   info: SummarizeInfo[];
 }
 
 export interface SummarizeResponse {
   articles: SummaryArticle[];
+}
+
+// ==================== ANALYTICS TYPES ====================
+
+export interface WeeklyReadingDay {
+  day: string;
+  minutes: number;
+}
+
+export interface CategoryStat {
+  name: string;
+  value: number;
+}
+
+export interface SentimentStat {
+  label: string;
+  value: number;
+}
+
+export interface AnalyticsResponse {
+  weekly_reading_time: WeeklyReadingDay[];
+  top_categories: CategoryStat[];
+  sentiment_bias: SentimentStat[];
+  total_articles_read: number;
 }

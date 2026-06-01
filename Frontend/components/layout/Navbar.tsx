@@ -31,6 +31,7 @@ export function Navbar() {
   const navLinks = [
     { href: "/dashboard", label: "Dashboard" },
     { href: "/search", label: "Search" },
+    { href: "/analytics", label: "Analytics" },
     { href: "/bookmarks", label: "Bookmarks" },
     { href: "/settings", label: "Settings" },
   ];
