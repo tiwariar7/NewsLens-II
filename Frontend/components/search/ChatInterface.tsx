@@ -92,7 +92,7 @@ export function ChatInterface({ query, contextArticles }: ChatInterfaceProps) {
     return () => {
       isMounted = false;
     };
-  }, [query, token]);
+  }, [query, token, contextArticles]);
 
   if (!query) return null;
 

@@ -83,7 +83,7 @@ def fetch_historical_search(query, max_results=10, search_mode="historical"):
             results = [r for r in ddgs.text(ddg_query, max_results=50)]
             
         if not results:
-            return []
+            raise Exception("No results found from DDG text, forcing fallback.")
             
         ranked_results = []
         for r in results:
