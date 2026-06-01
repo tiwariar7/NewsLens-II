@@ -63,6 +63,7 @@ export interface NewsApiResponse {
   status?: string;
   task_id?: string;
   message?: string;
+  mode?: string;
 }
 
 // The response from your /summarize endpoint

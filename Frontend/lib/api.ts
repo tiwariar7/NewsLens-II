@@ -76,7 +76,7 @@ export const articleChat = (query: string, articleContent: string, articleTitle:
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${getAuthToken()}`,
+      'Authorization': `Bearer ${useAuthStore.getState().token}`,
     },
     body: JSON.stringify({ query, article_content: articleContent, article_title: articleTitle }),
   });
@@ -84,7 +84,7 @@ export const articleChat = (query: string, articleContent: string, articleTitle:
 
 // ==================== HISTORICAL SEARCH API ====================
 
-export const historicalSearch = (query: string, mode: string = 'historical'): Promise<{ articles: Article[], totalResults: number, page: number, mode: string }> => {
+export const historicalSearch = (query: string, mode: string = 'historical'): Promise<NewsApiResponse> => {
   return apiFetch('/historical-search', {
     method: 'POST',
     body: JSON.stringify({ query, mode }),
