@@ -1,33 +1,37 @@
 services:
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - frontend
+      - backend
+
   db:
     image: pgvector/pgvector:pg15
     environment:
       POSTGRES_USER: newslens_user
       POSTGRES_PASSWORD: newslens_password
       POSTGRES_DB: newslens
-    ports:
-      - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
       - ./Backend/init.sql:/docker-entrypoint-initdb.d/init.sql
 
   redis:
     image: redis:alpine
-    ports:
-      - "6379:6379"
 
   backend:
     build:
       context: ./Backend
-    ports:
-      - "5000:5000"
     environment:
       - DATABASE_URL=postgresql://newslens_user:newslens_password@db:5432/newslens
       - REDIS_URL=redis://redis:6379/0
       - SECRET_KEY=your_secret_key_here
       - NEWSAPI_KEY=${NEWSAPI_KEY}
       - GEMINI_API_KEY=${GEMINI_API_KEY}
-      - FRONTEND_URL=http://localhost:3000
+      - FRONTEND_URL=https://newslens2.armantiwari.dpdns.org
       - HF_TOKEN=${HF_TOKEN}
       - HF_MODEL=${HF_MODEL}
     depends_on:
@@ -52,10 +56,10 @@ services:
   frontend:
     build:
       context: ./Frontend
-    ports:
-      - "3000:3000"
+      args:
+        NEXT_PUBLIC_API_URL: /api
     environment:
-      - NEXT_PUBLIC_API_URL=http://localhost:5000
+      - NEXT_PUBLIC_API_URL=/api
     depends_on:
       - backend
 
